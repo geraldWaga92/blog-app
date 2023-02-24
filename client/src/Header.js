@@ -11,7 +11,7 @@ export default function Header() {
       response.json().then(userInfo => {
         setUserInfo(userInfo)
       })
-    });
+    })
   }, []);
 
   function logout() {
@@ -31,7 +31,7 @@ export default function Header() {
         {username && (
           <>
             <Link to="/create" className="create" >Create new post</Link>
-            <a onClick={logout} className="logout" >Logout ({username})</a>
+            <a onClick={logout} className="logout" >Logout({username})</a>
           </>
         )}
         {!username && (
