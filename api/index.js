@@ -16,19 +16,19 @@ const port = process.env.PORT;
 const salt = bcrypt.genSaltSync(10);
 const secret = "asdfe45we45w345wegw345werjktjwertkj";
 
-app.use(
-  cors({
-    credentials: true,
-    origin: [
-      "http://localhost:3000",
-      "https://sougene-daily-blog.onrender.com",
-    ],
-  })
-);
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: [
+//       "http://localhost:3000"
+//     ],
+//   })
+// );
+app.use(cors());
 app.use(express.json());
 mongoose.set("strictQuery", false);
 app.use(cookieParser());
-app.use("/uploads", express.static(__dirname + "client/uploads"));
+app.use("/uploads", express.static(__dirname + "client/build/uploads"));
 
 mongoose
   .connect(process.env.MONGODB_CONNECT_KEY)
